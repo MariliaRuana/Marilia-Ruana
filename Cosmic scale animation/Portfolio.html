@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marília Ruana — Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #fafaf8;
+      --panel: #ffffff;
+      --ink: #14171a;
+      --ink-2: #3b4147;
+      --ink-3: #6b7280;
+      --rule: #e3e3df;
+      --rule-2: #ececea;
+      --accent: #1f4d3a;
+      --accent-soft: #eaf0ec;
+
+      --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:var(--accent);color:#fff}
+
+    .wrap{max-width:1180px;margin:0 auto;padding:40px 56px 96px}
+
+    /* TOP NAV */
+    .nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+    .nav-left{display:flex;align-items:center;gap:10px}
+    .nav-mark{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;font-family:var(--sans)}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{color:var(--ink-2);transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+
+    /* HERO */
+    .hero{padding:88px 0 64px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:64px;align-items:end;border-bottom:1px solid var(--rule)}
+    .hero .eyebrow{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.04em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .hero .eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+    .hero h1{font-size:clamp(48px,7vw,92px);line-height:1.02;letter-spacing:-.025em;font-weight:500;color:var(--ink)}
+    .hero h1 span{color:var(--ink-3);font-weight:400}
+    .hero-side{font-size:15px;line-height:1.65;color:var(--ink-2);max-width:320px}
+    .hero-side .role{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;display:block}
+    .hero-side p{margin-bottom:14px}
+    .hero-side .where{font-family:var(--mono);font-size:12px;color:var(--ink);padding-top:14px;border-top:1px solid var(--rule)}
+
+    /* KEY STATS BAR */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--rule)}
+    .stat{padding:32px 24px;border-right:1px solid var(--rule)}
+    .stat:last-child{border-right:none}
+    .stat .num{font-size:40px;font-weight:500;letter-spacing:-.02em;color:var(--ink);line-height:1;margin-bottom:8px}
+    .stat .num sup{font-size:18px;font-weight:400;color:var(--ink-3);vertical-align:super}
+    .stat .label{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.06em;line-height:1.4;text-transform:uppercase}
+
+    /* SECTION */
+    section{padding:72px 0;border-bottom:1px solid var(--rule)}
+    section:last-of-type{border-bottom:none}
+    .sec-head{display:grid;grid-template-columns:160px 1fr;gap:48px;margin-bottom:40px;align-items:baseline}
+    .sec-tag{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase}
+    .sec-title{font-size:clamp(28px,3.4vw,40px);line-height:1.1;font-weight:500;letter-spacing:-.015em;max-width:24ch;color:var(--ink)}
+    .sec-title b{color:var(--accent);font-weight:500}
+
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:160px 1fr;gap:48px}
+    .about-aside{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.8;letter-spacing:.02em}
+    .about-aside li{list-style:none;padding:8px 0;border-bottom:1px solid var(--rule-2)}
+    .about-body{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:68ch}
+    .about-body p{margin-bottom:16px}
+    .about-body p strong{color:var(--ink);font-weight:500}
+
+    /* TIMELINE */
+    .tl{display:flex;flex-direction:column}
+    .tl-row{display:grid;grid-template-columns:160px 1fr 160px;gap:48px;padding:24px 0;border-top:1px solid var(--rule);transition:background .2s}
+    .tl-row:hover{background:rgba(31,77,58,.03)}
+    .tl-row:last-child{border-bottom:1px solid var(--rule)}
+    .tl-when{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:500;padding-top:4px}
+    .tl-when .now{display:inline-block;background:var(--accent);color:#fff;padding:2px 6px;border-radius:3px;font-size:10.5px;letter-spacing:.06em;margin-left:4px;font-weight:500}
+    .tl-role{font-size:19px;font-weight:500;letter-spacing:-.005em;color:var(--ink);margin-bottom:6px}
+    .tl-org{font-size:14px;color:var(--ink-2);font-weight:400}
+    .tl-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.06em;text-align:right;line-height:1.7;text-transform:uppercase}
+
+    /* PUBLICATIONS */
+    .pubs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+    .pub{padding:28px 28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--panel);transition:background .2s}
+    .pub:hover{background:#fbfbf9}
+    .pub-kind{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+    .pub h3{font-size:18px;line-height:1.35;font-weight:500;letter-spacing:-.005em;color:var(--ink);margin-bottom:10px}
+    .pub p{font-size:14px;color:var(--ink-2);line-height:1.55}
+    .pub .award{margin-top:14px;display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:5px 10px;border-radius:3px;font-weight:500}
+    .pub .award::before{content:"★";font-size:11px}
+
+    /* COURSES */
+    .courses{display:flex;flex-direction:column}
+    .course{display:grid;grid-template-columns:80px minmax(0,1fr) 200px 80px;gap:24px;padding:16px 0;border-top:1px solid var(--rule-2);align-items:baseline}
+    .course:first-child{border-top:1px solid var(--rule)}
+    .course:last-child{border-bottom:1px solid var(--rule)}
+    .c-year{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+    .c-title{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-.005em}
+    .c-org{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);letter-spacing:.04em}
+    .c-load{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-align:right;letter-spacing:.04em}
+
+    /* SKILLS */
+    .skills{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .skills h4{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+
+    .areas{display:flex;flex-direction:column;gap:0}
+    .area{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--rule-2)}
+    .area-name{font-size:15px;font-weight:500;color:var(--ink)}
+    .area-bar{display:flex;gap:4px}
+    .area-bar i{width:18px;height:6px;background:var(--rule);border-radius:1px;display:inline-block}
+    .area-bar i.on{background:var(--accent)}
+
+    .langs{display:flex;flex-direction:column;gap:0}
+    .lang{display:grid;grid-template-columns:1fr auto auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule-2);align-items:center}
+    .lang-name{font-size:15px;font-weight:500;color:var(--ink)}
+    .lang-level{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase}
+
+    /* CONTACT */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:64px 0 24px;border-top:2px solid var(--ink);margin-top:48px}
+    .contact h2{font-size:clamp(36px,4.6vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.02em;color:var(--ink);max-width:14ch}
+    .contact-info{font-family:var(--mono);font-size:13.5px;line-height:1.75;color:var(--ink)}
+    .contact-info .label{display:block;font-size:11px;color:var(--ink-3);letter-spacing:.1em;text-transform:uppercase;margin-top:18px;margin-bottom:4px}
+    .contact-info .label:first-child{margin-top:0}
+
+    .meta-foot{display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+
+    @media (max-width:900px){
+      .wrap{padding:24px 20px 64px}
+      .hero{grid-template-columns:1fr;gap:32px;padding:56px 0 40px}
+      .hero-side{max-width:none}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .stat{border-bottom:1px solid var(--rule)}
+      .stat:nth-child(2){border-right:none}
+      .sec-head,.about,.skills,.contact{grid-template-columns:1fr;gap:24px}
+      .pubs{grid-template-columns:1fr}
+      .tl-row{grid-template-columns:1fr;gap:6px}
+      .tl-meta{text-align:left}
+      .course{grid-template-columns:60px 1fr;gap:12px}
+      .course .c-org,.course .c-load{grid-column:2;text-align:left;font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-left">
+        <span class="nav-mark">M</span>
+        <span>marilia.moura — portfólio</span>
+      </div>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#atuacao">Atuação</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Pesquisadora · Mestranda em Administração — UFCA</div>
+        <h1>Marília Ruana<br/><span>Nascimento Moura</span></h1>
+      </div>
+      <aside class="hero-side">
+        <span class="role">Linhas de pesquisa</span>
+        <p>Gestão Social, Bem Viver dos povos originários, Políticas Públicas e Economia Solidária.</p>
+        <p class="where">Juazeiro do Norte / CE · Brasil</p>
+      </aside>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat">
+        <div class="num">5<sup>+</sup></div>
+        <div class="label">Anos de pesquisa<br/>na ITEPS / UFCA</div>
+      </div>
+      <div class="stat">
+        <div class="num">2</div>
+        <div class="label">Artigos científicos<br/>publicados</div>
+      </div>
+      <div class="stat">
+        <div class="num">1</div>
+        <div class="label">Livro em<br/>co-autoria</div>
+      </div>
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">Idiomas — PT<br/>EN · FR</div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="sobre">
+      <div class="sec-head">
+        <div class="sec-tag">§ 01 / Sobre</div>
+        <h2 class="sec-title">Pesquisa em <b>gestão social</b>, povos originários e bem viver.</h2>
+      </div>
+      <div class="about">
+        <ul class="about-aside">
+          <li>Bacharela em Administração Pública e Gestão Social — UFCA</li>
+          <li>Mestranda em Administração — UFCA</li>
+          <li>Pesquisadora ITEPS · 2021—atual</li>
+          <li>Co-autora de livro e artigos premiados</li>
+        </ul>
+        <div class="about-body">
+          <p>Bacharela em Administração Pública e Gestão Social pela <strong>Universidade Federal do Cariri (UFCA)</strong> e mestranda em Administração pela mesma instituição. Atua como pesquisadora pela <strong>Incubadora Tecnológica de Empreendimentos Populares e Solidários (ITEPS)</strong>.</p>
+          <p>É co-autora do livro <strong>“Entre a Resistência e os Encantos: Diálogos sobre Gestão Social e Bem Viver com Povos Tradicionais”</strong> e autora de artigos científicos sobre o Projeto Tessituras, que recebeu o prêmio principal do 3º Congresso Científico Internacional da RedeCT.</p>
+          <p>Atualmente integra a produção do documentário <strong>“Cultura e Memória do Povo Truká”</strong>, em parceria com a Comunidade Indígena Truká. Tem experiência em Sociologia e Ciências Sociais, com ênfase em Bem Viver Indígena, Gestão Social, Políticas Públicas, Economia Solidária e Desenvolvimento Sustentável.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATUAÇÃO -->
+    <section id="atuacao">
+      <div class="sec-head">
+        <div class="sec-tag">§ 02 / Atuação</div>
+        <h2 class="sec-title">Trajetória profissional e <b>acadêmica</b>.</h2>
+      </div>
+      <div class="tl">
+
+        <div class="tl-row">
+          <div class="tl-when">2025 <span class="now">atual</span></div>
+          <div>
+            <div class="tl-role">Assistente de RH — Estágio</div>
+            <div class="tl-org">Secretaria de Agricultura e Meio Ambiente · SEMA</div>
+          </div>
+          <div class="tl-meta">Estágio<br/>20h / sem.</div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-when">2021 <span class="now">atual</span></div>
+          <div>
+            <div class="tl-role">Pesquisadora</div>
+            <div class="tl-org">Incubadora Tecnológica de Empreendimentos Populares e Solidários · ITEPS / UFCA</div>
+          </div>
+          <div class="tl-meta">Pesquisa<br/>12h / sem.</div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-when">2024</div>
+          <div>
+            <div class="tl-role">Assistente Pessoal</div>
+            <div class="tl-org">Nordja · Assistentes Remotas</div>
+          </div>
+          <div class="tl-meta">CLT<br/>40h / sem.</div>
+        </div>
+
+        <div class="tl-row">
+          <div class="tl-when">2022 — 2023</div>
+          <div>
+            <div class="tl-role">Assistente Administrativa — Estágio</div>
+            <div class="tl-org">Sebrae Cariri · Palácio da Micro Empresa</div>
+          </div>
+          <div class="tl-meta">Estágio<br/>20h / sem.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBLICAÇÕES -->
+    <section id="publicacoes">
+      <div class="sec-head">
+        <div class="sec-tag">§ 03 / Publicações</div>
+        <h2 class="sec-title">Autoria, livros e <b>premiações</b>.</h2>
+      </div>
+      <div class="pubs">
+
+        <article class="pub">
+          <div class="pub-kind">Livro · Co-autoria</div>
+          <h3>Entre a Resistência e os Encantos: Diálogos sobre Gestão Social e Bem Viver com Povos Tradicionais</h3>
+          <p>Obra coletiva produzida no âmbito da ITEPS / UFCA, articulando práticas de gestão social a partir das epistemologias dos povos tradicionais.</p>
+        </article>
+
+        <article class="pub">
+          <div class="pub-kind">Artigo científico</div>
+          <h3>Aproximações entre Gestão Social e o Bem Viver Indígena a partir do Projeto Tessituras</h3>
+          <p>Publicado nos Anais do 3º Congresso Científico Internacional da RedeCT.</p>
+          <span class="award">Prêmio principal — 3º Congresso RedeCT</span>
+        </article>
+
+        <article class="pub">
+          <div class="pub-kind">Artigo científico</div>
+          <h3>Projeto Tessituras: Aproximação Conceitual entre Gestão Social e o Bem Viver Indígena</h3>
+          <p>Discussão teórica sobre a interseção entre práticas de gestão social e o paradigma do Bem Viver dos povos originários.</p>
+        </article>
+
+        <article class="pub">
+          <div class="pub-kind">Documentário · Em produção</div>
+          <h3>Cultura e Memória do Povo Truká</h3>
+          <p>Produção em parceria com a Comunidade Indígena Truká, documentando saberes, memória e expressões culturais do povo.</p>
+        </article>
+
+        <article class="pub">
+          <div class="pub-kind">Seminário formativo</div>
+          <h3>Projeto Tessituras: Diálogos sobre Gestão Social e Povos Tradicionais</h3>
+          <p>Série de seminários formativos desenvolvidos junto à ITEPS, ampliando o diálogo público sobre o projeto.</p>
+        </article>
+
+        <article class="pub">
+          <div class="pub-kind">Projeto · 2019</div>
+          <h3>Juventude, Projetos de Vida e Ensino Médio</h3>
+          <p>Co-autoria do projeto vencedor do 3º lugar na etapa regional do Ceará Científico, ainda no Ensino Médio.</p>
+          <span class="award">3º lugar regional — Ceará Científico 2019</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao">
+      <div class="sec-head">
+        <div class="sec-tag">§ 04 / Formação Complementar</div>
+        <h2 class="sec-title">Cursos, extensões e <b>congressos</b>.</h2>
+      </div>
+      <div class="courses">
+
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Congresso Científico Internacional da RedeCT</div><div class="c-org">RedeCT · Extensão</div><div class="c-load">40h</div></div>
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Equilíbrio Fiscal</div><div class="c-org">ENAP · Brasília</div><div class="c-load">40h</div></div>
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Gestão Tributária Municipal</div><div class="c-org">ENAP · Brasília</div><div class="c-load">30h</div></div>
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Gestão de Projetos Educacionais</div><div class="c-org">ENAP · Brasília</div><div class="c-load">30h</div></div>
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Indicadores de Desempenho — Transformação Digital</div><div class="c-org">ENAP · Brasília</div><div class="c-load">25h</div></div>
+        <div class="course"><div class="c-year">2023</div><div class="c-title">Cidades Inteligentes</div><div class="c-org">ENAP · Brasília</div><div class="c-load">10h</div></div>
+        <div class="course"><div class="c-year">2021</div><div class="c-title">Fazer Extensão: estratégias de realização e divulgação</div><div class="c-org">UFCA · Juazeiro do Norte</div><div class="c-load">30h</div></div>
+        <div class="course"><div class="c-year">2021</div><div class="c-title">VIII Semana de Administração Pública</div><div class="c-org">UFCA · Juazeiro do Norte</div><div class="c-load">23h</div></div>
+        <div class="course"><div class="c-year">2021</div><div class="c-title">No Balanço da Rede: Diálogos Interdisciplinares</div><div class="c-org">LAURBS</div><div class="c-load">3h</div></div>
+        <div class="course"><div class="c-year">2020</div><div class="c-title">Comunicação Empresarial, Vendas e RH</div><div class="c-org">Capacitar Brasil</div><div class="c-load">20h</div></div>
+        <div class="course"><div class="c-year">2018</div><div class="c-title">Assistente de Secretaria Escolar</div><div class="c-org">PRONATEC</div><div class="c-load">180h</div></div>
+
+      </div>
+    </section>
+
+    <!-- ÁREAS / IDIOMAS -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-tag">§ 05 / Áreas & Idiomas</div>
+        <h2 class="sec-title">Campos de estudo e <b>fluências</b>.</h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h4>Áreas de Estudo</h4>
+          <div class="areas">
+            <div class="area"><span class="area-name">Gestão Social</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div class="area"><span class="area-name">Bem Viver / Povos Originários</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div class="area"><span class="area-name">Políticas Públicas</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <div class="area"><span class="area-name">Desenvolvimento Sustentável</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <div class="area"><span class="area-name">Economia Solidária</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <div class="area"><span class="area-name">Economia Circular</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          </div>
+        </div>
+        <div>
+          <h4>Idiomas</h4>
+          <div class="langs">
+            <div class="lang"><span class="lang-name">Português</span><span class="lang-level">Nativo</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div class="lang"><span class="lang-name">Inglês</span><span class="lang-level">Intermediário</span><span class="area-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+            <div class="lang"><span class="lang-name">Francês</span><span class="lang-level">Básico</span><span class="area-bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+          </div>
+
+          <h4 style="margin-top:40px">Formação Acadêmica</h4>
+          <div class="langs">
+            <div class="lang" style="grid-template-columns:1fr auto"><span class="lang-name">Mestrado em Administração — UFCA</span><span class="lang-level">2025 — atual</span></div>
+            <div class="lang" style="grid-template-columns:1fr auto"><span class="lang-name">Bacharelado em Adm. Pública e Gestão Social — UFCA</span><span class="lang-level">2020 — 2025</span></div>
+            <div class="lang" style="grid-template-columns:1fr auto"><span class="lang-name">Ensino Médio — Belarmino Lins de Medeiros</span><span class="lang-level">2016 — 2019</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <footer id="contato" class="contact">
+      <h2>Contato</h2>
+      <div class="contact-info">
+        <span class="label">E-mail</span>
+        marilia.moura@aluno.ufca.edu.br
+        <span class="label">Telefone</span>
+        +55 (88) 98829-9367
+        <span class="label">Endereço</span>
+        Av. Padre Nestor Sampaio, 897<br/>
+        Lagoa Seca · Juazeiro do Norte / CE<br/>
+        CEP 63040-695
+      </div>
+    </footer>
+
+    <div class="meta-foot">
+      <span>© 2026 — Marília Ruana Nascimento Moura</span>
+      <span>UFCA · ITEPS</span>
+    </div>
+
+  </div>
+</body>
+</html>
